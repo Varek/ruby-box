@@ -22,7 +22,7 @@ module RubyBox
       begin
         resp = file.upload_content(data) #write a new file. If there is a conflict, update the conflicted file.
       rescue RubyBox::ItemNameInUse => e
-        
+
         # if overwrite flag is false, simply raise exception.
         raise e unless overwrite
 
@@ -66,7 +66,7 @@ module RubyBox
           'role' => role.to_s
       }).create
     end
-    
+
     private
 
     def resource_name
@@ -78,7 +78,7 @@ module RubyBox
     end
 
     def update_fields
-      ['name', 'description']
+      ['name', 'description', 'sync_state']
     end
 
     def items_by_type(type, name, item_limit, offset, fields)
